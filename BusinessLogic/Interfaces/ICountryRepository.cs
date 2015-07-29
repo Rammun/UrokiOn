@@ -13,6 +13,6 @@ namespace BusinessLogic.Interfaces
         Country GetCountryByID(int id);
         Country GetCountryByName(string name);
         void AddCountry(Country country);
-        void DelCountry(Country country);
+        void RemoveCountry(Country country);
     }
 }

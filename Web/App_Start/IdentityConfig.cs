@@ -13,6 +13,8 @@ using Microsoft.Owin.Security;
 using Web.Models;
 using Domain.Entities;
 using Domain;
+using System.Net.Mail;
+using System.Net;
 
 namespace Web
 {
@@ -21,9 +23,46 @@ namespace Web
         public Task SendAsync(IdentityMessage message)
         {
             // Подключите здесь службу электронной почты для отправки сообщения электронной почты.
+            return configSendGridAsync(message);
+        }
+
+        private Task configSendGridAsync(IdentityMessage message)
+        {
+            //var myMessage = new MailMessage();
+            //myMessage.To(message.Destination);
+            //myMessage.From = new MailAddress(
+            //                    "rlikh75@mail.ru", "eRKa");
+            //myMessage.Subject = message.Subject;
+            //myMessage.Text = message.Body;
+            //myMessage.Html = message.Body;
+
+            //var credentials = new NetworkCredential(
+            //           ConfigurationManager.AppSettings["mailAccount"],
+            //           ConfigurationManager.AppSettings["mailPassword"]
+            //           );
+
+            //// Create a Web transport for sending email.
+            //var transportWeb = new Web(credentials);
+
+            MailMessage msg = new MailMessage();  // сообщение электронной почты
+            msg.From = new MailAddress("rlikh75@mail.ru", "eRKa");  // от кого
+            msg.To.Add(new MailAddress(message.Destination));  // кому
+            msg.Subject = message.Subject;  // Тема сообщения
+            msg.IsBodyHtml = true;  // показывает, имеет ли основная часть почтового сообщения формат HTML.
+            msg.Body = message.Body;  // Тело сообщения
+
+            SmtpClient client = new SmtpClient();
+
+            // Send the email.
+            if (client != null)
+            {
+                client.SendAsync(msg, "test");  // Отправка сообщения
+            }
             return Task.FromResult(0);
         }
     }
+
+
 
     public class SmsService : IIdentityMessageService
     {

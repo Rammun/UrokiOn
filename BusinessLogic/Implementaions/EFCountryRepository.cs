@@ -41,7 +41,7 @@ namespace BusinessLogic.Implementaions
             context.SaveChanges();
         }
 
-        public void DelCountry(Country country)
+        public void RemoveCountry(Country country)
         {
             context.Countries.Remove(country);
             context.SaveChanges();

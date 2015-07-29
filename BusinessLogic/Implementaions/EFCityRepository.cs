@@ -31,12 +31,12 @@ namespace BusinessLogic.Implementaions
 
         public IEnumerable<string> GetCityNamesByIdRegion(int id)
         {
-            return context.Cities.AsQueryable().Where(x => x.Id == id).Select(x => x.Name);
+            return context.Cities.AsQueryable().Where(x => x.RegionId == id).Select(x => x.Name);
         }
 
         public City GetCityByID(int id)
         {
-            return context.Cities.FirstOrDefault(x => x.Id == id);
+            return context.Cities.Find(id);
         }
 
         public City GetCityByName(string name)
@@ -50,7 +50,7 @@ namespace BusinessLogic.Implementaions
             context.SaveChanges();
         }
 
-        public void DelCity(City city)
+        public void RemoveCity(City city)
         {
             context.Cities.Remove(city);
             context.SaveChanges();

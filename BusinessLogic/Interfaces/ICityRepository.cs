@@ -15,6 +15,6 @@ namespace BusinessLogic.Interfaces
         City GetCityByID(int id);
         City GetCityByName(string name);
         void AddCity(City city);
-        void DelCity(City city);
+        void RemoveCity(City city);
     }
 }
