@@ -23,28 +23,13 @@ namespace Web
         public Task SendAsync(IdentityMessage message)
         {
             // Подключите здесь службу электронной почты для отправки сообщения электронной почты.
-            return configSendGridAsync(message);
+            return configSendMailAsync(message);
         }
 
-        private Task configSendGridAsync(IdentityMessage message)
+        private Task configSendMailAsync(IdentityMessage message)
         {
-            //var myMessage = new MailMessage();
-            //myMessage.To(message.Destination);
-            //myMessage.From = new MailAddress(
-            //                    "rlikh75@mail.ru", "eRKa");
-            //myMessage.Subject = message.Subject;
-            //myMessage.Text = message.Body;
-            //myMessage.Html = message.Body;
-
-            //var credentials = new NetworkCredential(
-            //           ConfigurationManager.AppSettings["mailAccount"],
-            //           ConfigurationManager.AppSettings["mailPassword"]
-            //           );
-
-            //// Create a Web transport for sending email.
-            //var transportWeb = new Web(credentials);
-
             MailMessage msg = new MailMessage();  // сообщение электронной почты
+
             msg.From = new MailAddress("rlikh75@mail.ru", "eRKa");  // от кого
             msg.To.Add(new MailAddress(message.Destination));  // кому
             msg.Subject = message.Subject;  // Тема сообщения
