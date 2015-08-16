@@ -33,12 +33,9 @@ namespace Domain.Entities
 
         public virtual ICollection<GroupProfile> GroupProfiles { get; set; }
 
-        public virtual ICollection<ApplicationUser> Users { get; set; }
-
         public City()
         {
             GroupProfiles = new List<GroupProfile>();
-            Users = new List<ApplicationUser>();
         }
     }
 }

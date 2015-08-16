@@ -1,5 +1,6 @@
 ﻿using Domain.Entities;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
@@ -21,9 +22,14 @@ namespace Domain
             ApplicationUser user = new ApplicationUser()
             {
                 Email = "admin@adm.ru",
-                UserName = "Admin"
+                UserName = "admin@adm.ru"
             };
+            user.EmailConfirmed = true;
+            userManager.Create(user, "password");
+
             IdentityRole role = new IdentityRole("admin");
+            roleManager.Create(role);
+            userManager.AddToRole(user.Id, role.Name);
 
             UserProfile userProfile = new UserProfile
             {
@@ -31,15 +37,10 @@ namespace Domain
                 Surname = "Лихобаба",
                 MiddleName = "Сергеевич"
             };
-
             user.UserProfile = userProfile;
-
-            context.UserProfiles.Add(userProfile);
-            userManager.Create(user, "qqqqqq");
-
-            roleManager.Create(role);
-            userManager.AddToRole(user.Id, role.Name);
+            context.UserProfiles.Add(userProfile);            
             // <----
+
             context.SaveChanges();
 
         }

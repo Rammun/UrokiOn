@@ -25,6 +25,10 @@
                     <li>@Html.ActionLink("Домашняя страница", "Index", "Home")</li>
                     <li>@Html.ActionLink("О программе", "About", "Home")</li>
                     <li>@Html.ActionLink("Контакт", "Contact", "Home")</li>
+                    @if (Request.IsAuthenticated && (User.IsInRole("admin") || User.IsInRole("moderator")))
+                    {
+                        <li>@Html.ActionLink("Администрирование", "Index", "Home")</li>
+                    }                        
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

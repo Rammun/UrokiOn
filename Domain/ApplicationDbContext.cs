@@ -40,16 +40,18 @@ namespace Domain
         {
             base.OnModelCreating(modelBuilder);
 
+            modelBuilder.Entity<UserProfile>().HasRequired(x => x.User).WithOptional(x => x.UserProfile);
+
             modelBuilder.Entity<Group>().HasRequired(x => x.Administrator).WithOptional();
             modelBuilder.Entity<Group>().HasMany(x => x.Users).WithOptional().WillCascadeOnDelete(false);
 
             modelBuilder.Entity<GroupProfile>().HasRequired(x => x.Group).WithOptional(x => x.GroupProfile);
 
-            modelBuilder.Entity<Country>().HasMany(x => x.Users).WithOptional().WillCascadeOnDelete(false);
+            
             modelBuilder.Entity<Country>().HasMany(x => x.GroupProfiles).WithOptional(x => x.Country).WillCascadeOnDelete(false);
-            modelBuilder.Entity<Region>().HasMany(x => x.Users).WithOptional().WillCascadeOnDelete(false);
+            
             modelBuilder.Entity<Region>().HasMany(x => x.GroupProfiles).WithOptional(x => x.Region).WillCascadeOnDelete(false);
-            modelBuilder.Entity<City>().HasMany(x => x.Users).WithOptional().WillCascadeOnDelete(false);
+            
             modelBuilder.Entity<City>().HasMany(x => x.GroupProfiles).WithOptional(x => x.City).WillCascadeOnDelete(false);
 
             modelBuilder.Entity<RequestGG>().HasRequired(x => x.GroupFrom).WithMany(x => x.RequestGGs).WillCascadeOnDelete(false);
