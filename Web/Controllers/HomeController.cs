@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Domain;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,9 +9,13 @@ namespace Web.Controllers
 {
     public class HomeController : Controller
     {
+        ApplicationDbContext db = new ApplicationDbContext();
+
         public ActionResult Index()
         {
-            return View();
+            var group = db.Groups.FirstOrDefault(x => x.Name == "Админы");
+            var news = group == null? null: group.GroupNewses.Where(x => x.Status).ToList();
+            return View(news);
         }
 
         public ActionResult About()
