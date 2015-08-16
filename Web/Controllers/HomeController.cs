@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
 
 namespace Web.Controllers
 {
@@ -11,10 +12,10 @@ namespace Web.Controllers
     {
         ApplicationDbContext db = new ApplicationDbContext();
 
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
             var group = db.Groups.FirstOrDefault(x => x.Name == "Админы");
-            var news = group == null? null: group.GroupNewses.Where(x => x.Status).ToList();
+            var news = group == null? null: group.GroupNewses.Where(x => x.Status).ToList().ToPagedList(page?? 1, 3);
             return View(news);
         }
 

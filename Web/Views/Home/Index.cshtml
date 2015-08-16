@@ -1,7 +1,14 @@
-﻿@model List<Domain.Entities.GroupNewse>
+﻿@model PagedList.IPagedList<Domain.Entities.GroupNewse>
+
+@using Microsoft.AspNet.Identity
+@using PagedList.Mvc;
+@using PagedList;
+
+<link href="/Content/PagedList.css" rel="stylesheet" type="text/css" />
 
 @{
     ViewBag.Title = "Home Page";
+    int i = 0;
 }
 
 <div class="jumbotron">
@@ -45,3 +52,5 @@
         }
     }
 </div>
+
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
