@@ -14,11 +14,19 @@ namespace Domain.Entities
     {
         public int Id { get; set; }
 
+        public string Name { get; set; }
+
         /// <summary>
         /// Родительская группа. Если null, то группа не имеет родителя
         /// </summary>
         public virtual Group ParentGroup { get; set; }
         public int? ParentGroupId { get; set; }
+
+        /// <summary>
+        /// Профайл группы
+        /// </summary>
+        public virtual GroupProfile GroupProfile { get; set; }
+        public int? GroupProfileId { get; set; }
 
         /// <summary>
         /// Тип группы
@@ -56,18 +64,19 @@ namespace Domain.Entities
         /// Коллекция запросов с приглашениями от пользователей и пользователям
         /// </summary>
         public virtual ICollection<RequestGU> RequestGUs { get; set; }
-
-        /// <summary>
-        /// Профайл группы
-        /// </summary>
-        public virtual GroupProfile GroupProfile { get; set; }
-        public int? GroupProfileId { get; set; }
-
+        
         public Group()
         {
             GroupNewses = new List<GroupNewse>();
             ChildGroups = new List<Group>();
             RequestGGs = new List<RequestGG>();
+        }
+
+        public Group(string groupName, GroupType groupType, ApplicationUser admin) : this()
+        {
+            Name = groupName;
+            GroupType = groupType;
+            Administrator = admin;
         }
     }
 }

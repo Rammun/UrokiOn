@@ -41,6 +41,13 @@ namespace Domain
             context.UserProfiles.Add(userProfile);            
             // <----
 
+            GroupType groupType = new GroupType("Администратор");
+            groupType.Description = "Тип группы для сотрудников - администраторов";
+            context.GroupTypes.Add(groupType);
+
+            Group group = new Group("Админы", groupType, user);
+            context.Groups.Add(group);
+
             context.SaveChanges();
 
         }

@@ -34,5 +34,10 @@ namespace Domain.Entities
         {
             Groups = new List<Group>();
         }
+
+        public GroupType(string groupName) : this()
+        {
+            Name = groupName;
+        }
     }
 }
