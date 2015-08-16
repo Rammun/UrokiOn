@@ -181,6 +181,19 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\CitiesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CountriesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\GroupNewsesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\GroupProfilesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\GroupsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\GroupTypesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MessagesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\RegionsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\RequestGGsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\RequestGUsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UserProfilesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\WallOfUsersController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -212,6 +225,67 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\GroupTypes\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\GroupTypes\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\GroupTypes\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\GroupTypes\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\GroupTypes\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Groups\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Groups\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Groups\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Groups\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Groups\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\GroupNewses\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\GroupNewses\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\GroupNewses\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\GroupNewses\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\GroupNewses\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Cities\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Cities\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Cities\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Cities\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Cities\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Countries\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Countries\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Countries\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Countries\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Countries\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\GroupProfiles\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\GroupProfiles\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\GroupProfiles\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\GroupProfiles\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\GroupProfiles\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Messages\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Messages\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Messages\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Messages\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Messages\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Regions\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Regions\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Regions\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Regions\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Regions\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\RequestGGs\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\RequestGGs\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\RequestGGs\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\RequestGGs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\RequestGGs\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\RequestGUs\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\RequestGUs\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\RequestGUs\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\RequestGUs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\RequestGUs\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\UserProfiles\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\UserProfiles\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\UserProfiles\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\UserProfiles\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\UserProfiles\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\WallOfUsers\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\WallOfUsers\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\WallOfUsers\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\WallOfUsers\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\WallOfUsers\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -272,7 +346,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Controllers\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
   </ItemGroup>

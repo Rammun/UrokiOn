@@ -1,0 +1,67 @@
+﻿@model Domain.Entities.Group
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Group</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.GroupProfile.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GroupProfile.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GroupType.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GroupType.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ParentGroup.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ParentGroup.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GroupProfileId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GroupProfileId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdministratorId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdministratorId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
