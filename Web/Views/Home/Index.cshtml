@@ -1,6 +1,4 @@
-﻿@model PagedList.IPagedList<Domain.Entities.GroupNewse>
-
-@using Microsoft.AspNet.Identity
+﻿@using Microsoft.AspNet.Identity
 @using PagedList.Mvc;
 @using PagedList;
 
@@ -39,18 +37,8 @@
     </div>
 </div>
 
-<div class="row">
-    @if (Model != null)
-    {
-        foreach (var news in Model)
-        {
-            <div class="col-md-4">
-                <h2>@news.Title</h2>
-                <p>@news.Text</p>
-                @news.CreateDate.ToShortDateString()
-            </div>
-        }
-    }
+<div id="news">
+    @Html.Partial("_GroupNewsPartial")
 </div>
 
-@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+
