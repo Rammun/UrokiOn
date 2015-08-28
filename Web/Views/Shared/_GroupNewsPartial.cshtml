@@ -11,6 +11,7 @@
                 <h2>@neww.Title</h2>
                 <p>@neww.Text</p>
                 @neww.CreateDate.ToShortDateString()
+                <p>@Html.ActionLink("Читать полностью", "ReadNews", "Home", new { id = neww.Id }, new { @class = "btn btn-default" })</p>                
             </div>
         }        
     }

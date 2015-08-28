@@ -18,14 +18,15 @@ namespace Web.Controllers
         {
             var group = db.Groups.FirstOrDefault(x => x.Name == "Админы");
             ViewBag.News = group == null ? null : group.GroupNewses.Where(x => x.Status).Select(x =>
-            {
-                return new GroupNewse()
                 {
-                    Title = x.Title,
-                    CreateDate = x.CreateDate,
-                    Text = x.Text.Length > 200 ? x.Text.Remove(x.Text.LastIndexOf(' ', 200)) + "..." : x.Text
-                };
-            }).ToPagedList(page ?? 1, 3);
+                    return new GroupNewse()
+                    {
+                        Id = x.Id,
+                        Title = x.Title,
+                        CreateDate = x.CreateDate,
+                        Text = x.Text.Length > 200 ? x.Text.Remove(x.Text.LastIndexOf(' ', 200)) + "..." : x.Text
+                    };
+                }).ToPagedList(page ?? 1, 3);
             return Request.IsAjaxRequest() ? (ActionResult)PartialView("_GroupNewsPartial") : View();
         }
 
@@ -43,13 +44,13 @@ namespace Web.Controllers
             return View();
         }
 
+        public ActionResult ReadNews(int id)
+        {
+            return View(db.GroupNewses.Find(id));
+        }
+
         public ActionResult GroupNewsAjax(List<GroupNewse> groupNews)
         {
-            //if (id == null)
-            //{
-            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //}
-
             return PartialView("_GroupNewsPartial", groupNews);
         }
     }
