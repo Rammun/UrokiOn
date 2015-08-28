@@ -1,10 +1,11 @@
 ﻿@using PagedList;
 @using PagedList.Mvc;
+@using System;
 
 <div class="row">
     @if (ViewBag.News != null)
     {
-        foreach (var neww in ViewBag.News)
+        foreach (Domain.Entities.GroupNewse neww in ViewBag.News)
         {
             <div class="col-md-4">
                 <h2>@neww.Title</h2>

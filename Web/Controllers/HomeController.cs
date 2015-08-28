@@ -17,14 +17,15 @@ namespace Web.Controllers
         public ActionResult Index(int? page)
         {
             var group = db.Groups.FirstOrDefault(x => x.Name == "Админы");
-            //var news = group == null? null: group.GroupNewses.Where(x => x.Status).ToList().ToPagedList(page?? 1, 3);
-            //return View(news);
-
-            //var listPaged = GetPagedNames(page); // GetPagedNames is found in BaseController
-            //if (listPaged == null)
-            //    return HttpNotFound();
-            ViewBag.News = group == null ? null : group.GroupNewses.Where(x => x.Status).ToList().ToPagedList(page ?? 1, 3);
-
+            ViewBag.News = group == null ? null : group.GroupNewses.Where(x => x.Status).Select(x =>
+            {
+                return new GroupNewse()
+                {
+                    Title = x.Title,
+                    CreateDate = x.CreateDate,
+                    Text = x.Text.Length > 200 ? x.Text.Remove(x.Text.LastIndexOf(' ', 200)) + "..." : x.Text
+                };
+            }).ToPagedList(page ?? 1, 3);
             return Request.IsAjaxRequest() ? (ActionResult)PartialView("_GroupNewsPartial") : View();
         }
 

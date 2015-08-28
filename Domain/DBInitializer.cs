@@ -1,18 +1,16 @@
 ﻿using Domain.Entities;
 using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
-using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Domain
 {
     public class DBInitializer : DropCreateDatabaseIfModelChanges<ApplicationDbContext>
     {
+        private Random rnd = new Random();
+
         protected override void Seed(ApplicationDbContext context)
         {
             // ---->  Создание пользователя
@@ -38,7 +36,7 @@ namespace Domain
                 MiddleName = "Сергеевич"
             };
             user.UserProfile = userProfile;
-            context.UserProfiles.Add(userProfile);            
+            context.UserProfiles.Add(userProfile);
             // <----
 
             GroupType groupType = new GroupType("Администратор");
@@ -48,8 +46,31 @@ namespace Domain
             Group group = new Group("Админы", groupType, user);
             context.Groups.Add(group);
 
-            context.SaveChanges();
+            for (int i = 0; i < 10; i++)
+            {
+                GroupNewse news = new GroupNewse
+                {
+                    Title = "Новость" + i,
+                    CreateDate = DateTime.Now,
+                    Status = true,
+                    Text = CreatText(),
+                    Group = group
+                };
+                context.GroupNewses.Add(news);
+            }
 
+            context.SaveChanges();
+        }
+
+        private string CreatText()
+        {
+            StringBuilder text = new StringBuilder();
+            int length = rnd.Next(1, 4) * 15;
+            for (int i = 0; i < length; i++)
+            {
+                text.Append("текст").Append(i).Append(" ");
+            }
+            return text.ToString();
         }
     }
 }
