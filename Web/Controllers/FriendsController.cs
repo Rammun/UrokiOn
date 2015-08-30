@@ -12,6 +12,7 @@ using PagedList.Mvc;
 
 namespace Web.Controllers
 {
+    [Authorize]
     public class FriendsController : Controller
     {
         ApplicationDbContext db = new ApplicationDbContext();

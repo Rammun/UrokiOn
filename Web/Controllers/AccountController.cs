@@ -179,8 +179,6 @@ namespace Web.Controllers
             return View();
         }
 
-
-
         //
         // GET: /Account/ConfirmEmail
         [AllowAnonymous]
@@ -190,8 +188,13 @@ namespace Web.Controllers
             {
                 return View("Error");
             }
+
             var result = await UserManager.ConfirmEmailAsync(userId, code);
-            return View(result.Succeeded ? "ConfirmEmail" : "Error");
+            if (!result.Succeeded)
+                return View("Error");
+
+            UserManager.AddToRole(userId, "user");
+            return View("ConfirmEmail");
         }
 
         //

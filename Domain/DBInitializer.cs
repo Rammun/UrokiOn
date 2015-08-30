@@ -25,9 +25,11 @@ namespace Domain
             user.EmailConfirmed = true;
             userManager.Create(user, "password");
 
-            IdentityRole role = new IdentityRole("admin");
-            roleManager.Create(role);
-            userManager.AddToRole(user.Id, role.Name);
+            roleManager.Create(new IdentityRole("admin"));
+            roleManager.Create(new IdentityRole("moderator"));
+            roleManager.Create(new IdentityRole("user"));
+
+            userManager.AddToRole(user.Id, "admin");
 
             UserProfile userProfile = new UserProfile
             {
@@ -40,7 +42,7 @@ namespace Domain
             // <----
 
             GroupType groupType = new GroupType("Администратор");
-            groupType.Description = "Тип группы для сотрудников - администраторов";
+            groupType.Description = "Тип группы для сотрудников-администраторов";
             context.GroupTypes.Add(groupType);
 
             Group group = new Group("Админы", groupType, user);
