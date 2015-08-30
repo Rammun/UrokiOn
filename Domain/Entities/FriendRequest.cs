@@ -26,6 +26,11 @@ namespace Domain.Entities
         public string RequestFriendId { get; set; }
 
         /// <summary>
+        /// Сопровождающее запрос сообщение
+        /// </summary>
+        public string Message { get; set; }
+
+        /// <summary>
         /// Дата создания запроса
         /// </summary>
         public DateTime CreateDate { get; set; }

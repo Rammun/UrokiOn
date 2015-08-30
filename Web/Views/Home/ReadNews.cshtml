@@ -7,7 +7,7 @@
 
 <h2>@Model.Title</h2>
 <p>@Model.Text</p>
-<p>@Model.CreateDate</p>
+<p>@Model.CreateDate.ToShortDateString()</p>
 
 @Html.ActionLink("Назад", "Index")
 

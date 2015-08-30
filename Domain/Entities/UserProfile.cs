@@ -20,6 +20,8 @@ namespace Domain.Entities
         public string Surname { get; set; }
         public string MiddleName { get; set; }
 
+        public DateTime? Birthday { get; set; }
+
         public virtual City City { get; set; }
         public int? CityId { get; set; }
 

@@ -5,16 +5,18 @@
 <div class="row">
     @if (ViewBag.News != null)
     {
-        foreach (Domain.Entities.GroupNewse neww in ViewBag.News)
+        foreach (Domain.Entities.GroupNewse news in ViewBag.News)
         {
-            <div class="col-md-4">
-                <h2>@neww.Title</h2>
-                <p>@neww.Text</p>
-                @neww.CreateDate.ToShortDateString()
-                <p>@Html.ActionLink("Читать полностью", "ReadNews", "Home", new { id = neww.Id }, new { @class = "btn btn-default" })</p>                
+            <div class="col-md-3">
+                <h2>@news.Title</h2>
+                <p>@news.Text</p>
+                @news.CreateDate.ToShortDateString()
+                <p>Прочитано @news.CountReader раз</p>
+                <p>@Html.ActionLink("Читать полностью", "ReadNews", "Home", new { id = news.Id }, new { @class = "btn btn-default" })</p>                
             </div>
         }        
     }
+    else { <p>У Вас нет друзей! :(</p>}
 </div>
 
 @Html.PagedListPager((IPagedList)ViewBag.News, page => Url.Action("Index", new { page }), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new AjaxOptions() { HttpMethod = "GET", UpdateTargetId = "news" }))

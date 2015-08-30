@@ -1,0 +1,34 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@using System;
+
+<div class="row">
+    @if (ViewBag.Friends != null)
+    {
+        foreach (var friend in ViewBag.Friends)
+        {
+            string word;
+            int age = DateTime.Now.Year - friend.Birthday.Year;
+            int l = age % 10;
+            if(l == 0 || (l >= 5 && l <= 9)) { word = "лет"; }
+            else if(l == 1) { word = "год"; }
+            else { word = "года"; }
+            
+            <div class="col-md-4">
+                <p>@friend.Surname @friend.Surname (@age @word )</p>
+                <p>@friend.City, @friend.Region, @friend.Country</p>
+                <p>@friend.Birthday.ToShortDateString()</p>
+            </div>
+        }
+        @Html.PagedListPager((IPagedList)ViewBag.Friends, page => Url.Action("Index", new { page }), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new AjaxOptions() { HttpMethod = "GET", UpdateTargetId = "friends" }))
+    }
+    else
+    {
+        <p>У Вас нет друзей! :(</p>
+    }
+    
+</div>
+
+
+
+

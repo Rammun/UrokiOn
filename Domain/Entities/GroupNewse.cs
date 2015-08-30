@@ -35,6 +35,11 @@ namespace Domain.Entities
         public DateTime CreateDate { get; set; }
 
         /// <summary>
+        /// Кол-во прочтений новости
+        /// </summary>
+        public int CountReader { get; set; }
+
+        /// <summary>
         /// Статус, отображать или нет новость
         /// </summary>
         public bool Status { get; set; }

@@ -54,6 +54,7 @@ namespace Domain
                     CreateDate = DateTime.Now,
                     Status = true,
                     Text = CreatText(),
+                    CountReader = 0,
                     Group = group
                 };
                 context.GroupNewses.Add(news);

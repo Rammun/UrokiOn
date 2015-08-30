@@ -46,6 +46,8 @@ namespace Web.Controllers
 
         public ActionResult ReadNews(int id)
         {
+            db.GroupNewses.Find(id).CountReader++;
+            db.SaveChanges();
             return View(db.GroupNewses.Find(id));
         }
 
