@@ -1,0 +1,16 @@
+﻿@using Microsoft.AspNet.Identity
+
+@if (Request.IsAuthenticated)
+{
+    <div class="col-md-3">
+        <div>
+            <ul class="nav nav-pills nav-stacked">
+                <li>@Html.ActionLink("Найти", "Index", "Find", new { area = "" }, null)</li>
+                <li>@Html.ActionLink("Группы", "Index", "Home", new { area = "" }, null)</li>
+                <li>@Html.ActionLink("Друзья", "Index", "Friends", new { area = "" }, null)</li>
+                <li>@Html.ActionLink("Сообщения", "Index", "Home", new { area = "" }, null)</li>
+                <li>@Html.ActionLink("Настройки", "Index", "Home", new { area = "" }, null)</li>
+            </ul>
+        </div>
+    </div>
+}

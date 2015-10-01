@@ -24,6 +24,7 @@ namespace Web.Controllers
                         Id = x.Id,
                         Title = x.Title,
                         CreateDate = x.CreateDate,
+                        CountReader = x.CountReader,
                         Text = x.Text.Length > 200 ? x.Text.Remove(x.Text.LastIndexOf(' ', 200)) + "..." : x.Text
                     };
                 }).ToPagedList(page ?? 1, 3);

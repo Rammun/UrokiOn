@@ -32,7 +32,7 @@ namespace Web.Controllers
             {
                 friends = userManager.FindByName(User.Identity.Name).UserProfile.FriendUsers.Select(x => x.UserProfile);
             }
-            catch (NullReferenceException ex)
+            catch (NullReferenceException)
             {
                 flag = true;
             }
