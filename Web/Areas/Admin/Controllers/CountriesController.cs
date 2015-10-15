@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using DAL;
-using DAL.Entities;
+using Domain;
+using Domain.Entities;
 
 namespace Web.Areas.Admin.Controllers
 {

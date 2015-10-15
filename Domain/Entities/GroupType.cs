@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 
-namespace DAL.Entities
+namespace Domain.Entities
 {
     /// <summary>
     /// Тип группы

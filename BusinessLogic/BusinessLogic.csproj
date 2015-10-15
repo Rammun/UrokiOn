@@ -95,9 +95,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Domain\DAL.csproj">
+    <ProjectReference Include="..\Domain\Domain.csproj">
       <Project>{b49c48ee-217c-4090-9b6e-e47d1d674e91}</Project>
-      <Name>DAL</Name>
+      <Name>Domain</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

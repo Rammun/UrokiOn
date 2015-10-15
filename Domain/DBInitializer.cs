@@ -1,11 +1,11 @@
-﻿using DAL.Entities;
+﻿using Domain.Entities;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Data.Entity;
 using System.Text;
 
-namespace DAL
+namespace Domain
 {
     public class DBInitializer : DropCreateDatabaseIfModelChanges<ApplicationDbContext>
     {
@@ -25,11 +25,9 @@ namespace DAL
             user.EmailConfirmed = true;
             userManager.Create(user, "password");
 
-            roleManager.Create(new IdentityRole("admin"));
-            roleManager.Create(new IdentityRole("moderator"));
-            roleManager.Create(new IdentityRole("user"));
-
-            userManager.AddToRole(user.Id, "admin");
+            IdentityRole role = new IdentityRole("admin");
+            roleManager.Create(role);
+            userManager.AddToRole(user.Id, role.Name);
 
             UserProfile userProfile = new UserProfile
             {
@@ -42,7 +40,7 @@ namespace DAL
             // <----
 
             GroupType groupType = new GroupType("Администратор");
-            groupType.Description = "Тип группы для сотрудников-администраторов";
+            groupType.Description = "Тип группы для сотрудников - администраторов";
             context.GroupTypes.Add(groupType);
 
             Group group = new Group("Админы", groupType, user);

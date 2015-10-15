@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 
-namespace DAL.Entities
+namespace Domain.Entities
 {
     /// <summary>
     /// Запросы в друзья

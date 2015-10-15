@@ -9,7 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Web.Models;
-using DAL.Entities;
+using Domain.Entities;
 
 namespace Web.Controllers
 {
@@ -179,6 +179,8 @@ namespace Web.Controllers
             return View();
         }
 
+
+
         //
         // GET: /Account/ConfirmEmail
         [AllowAnonymous]
@@ -188,13 +190,8 @@ namespace Web.Controllers
             {
                 return View("Error");
             }
-
             var result = await UserManager.ConfirmEmailAsync(userId, code);
-            if (!result.Succeeded)
-                return View("Error");
-
-            UserManager.AddToRole(userId, "user");
-            return View("ConfirmEmail");
+            return View(result.Succeeded ? "ConfirmEmail" : "Error");
         }
 
         //

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
 using System.Collections.Generic;
-using DAL;
+using Domain;
 using BusinessLogic.Interfaces;
-using DAL.Entities;
+using Domain.Entities;
 
 namespace BusinessLogic.Implementaions
 {

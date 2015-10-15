@@ -5,13 +5,13 @@ using System.Web;
 using System.Web.Mvc;
 using Ninject;
 using System.Web.Security;
-using DAL;
+using Domain;
 using System.Configuration;
 using BusinessLogic.Interfaces;
 using BusinessLogic.Implementaions;
 using Web.Models;
 using Microsoft.AspNet.Identity;
-using DAL.Entities;
+using Domain.Entities;
 
 namespace Web
 {

@@ -1,5 +1,5 @@
-﻿using DAL;
-using DAL.Entities;
+﻿using Domain;
+using Domain.Entities;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
@@ -12,7 +12,6 @@ using PagedList.Mvc;
 
 namespace Web.Controllers
 {
-    [Authorize]
     public class FriendsController : Controller
     {
         ApplicationDbContext db = new ApplicationDbContext();

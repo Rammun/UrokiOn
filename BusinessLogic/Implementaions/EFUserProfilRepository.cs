@@ -1,6 +1,6 @@
 ﻿using BusinessLogic.Interfaces;
-using DAL;
-using DAL.Entities;
+using Domain;
+using Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
