@@ -1,5 +1,5 @@
-﻿using Domain;
-using Domain.Entities;
+﻿using DAL;
+using DAL.Entities;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
@@ -32,7 +32,7 @@ namespace Web.Controllers
             {
                 friends = userManager.FindByName(User.Identity.Name).UserProfile.FriendUsers.Select(x => x.UserProfile);
             }
-            catch (NullReferenceException ex)
+            catch (NullReferenceException)
             {
                 flag = true;
             }

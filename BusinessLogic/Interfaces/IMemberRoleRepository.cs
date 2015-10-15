@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Domain.Entities;
+using DAL.Entities;
 
 namespace BusinessLogic.Interfaces
 {

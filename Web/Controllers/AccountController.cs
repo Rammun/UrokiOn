@@ -9,7 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Web.Models;
-using Domain.Entities;
+using DAL.Entities;
 
 namespace Web.Controllers
 {

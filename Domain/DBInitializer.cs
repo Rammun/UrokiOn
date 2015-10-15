@@ -1,11 +1,11 @@
-﻿using Domain.Entities;
+﻿using DAL.Entities;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Data.Entity;
 using System.Text;
 
-namespace Domain
+namespace DAL
 {
     public class DBInitializer : DropCreateDatabaseIfModelChanges<ApplicationDbContext>
     {

@@ -355,10 +355,11 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Account\RegisterStepTwo.cshtml" />
-    <Content Include="Views\Shared\_GroupNewsPartial.cshtml" />
+    <Content Include="Views\Home\_GroupNewsPartial.cshtml" />
     <Content Include="Views\Home\ReadNews.cshtml" />
     <Content Include="Views\Friends\Index.cshtml" />
-    <Content Include="Views\Shared\_FriendsPartial.cshtml" />
+    <Content Include="Views\Friends\_FriendsPartial.cshtml" />
+    <Content Include="Views\Shared\_LeftMenuPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -374,9 +375,9 @@
       <Project>{37c0ddd2-9031-4fdc-8692-ec08a7694be3}</Project>
       <Name>BusinessLogic</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Domain\Domain.csproj">
+    <ProjectReference Include="..\Domain\DAL.csproj">
       <Project>{b49c48ee-217c-4090-9b6e-e47d1d674e91}</Project>
-      <Name>Domain</Name>
+      <Name>DAL</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using BusinessLogic.Interfaces;
-using Domain;
-using Domain.Entities;
+using DAL;
+using DAL.Entities;
 
 namespace BusinessLogic.Implementaions
 {

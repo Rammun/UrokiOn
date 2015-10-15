@@ -11,8 +11,8 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using Web.Models;
-using Domain.Entities;
-using Domain;
+using DAL.Entities;
+using DAL;
 using System.Net.Mail;
 using System.Net;
 

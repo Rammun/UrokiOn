@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using BusinessLogic.Interfaces;
-using Domain;
-using Domain.Entities;
+using DAL;
+using DAL.Entities;
 
 namespace BusinessLogic.Implementaions
 {
@@ -26,7 +26,7 @@ namespace BusinessLogic.Implementaions
             return context.GroupTypes.FirstOrDefault(x => x.Id == id);
         }
 
-        public Domain.Entities.GroupType GetGroupTypeByName(string name)
+        public DAL.Entities.GroupType GetGroupTypeByName(string name)
         {
             return context.GroupTypes.FirstOrDefault(x => x.Name == name);
         }

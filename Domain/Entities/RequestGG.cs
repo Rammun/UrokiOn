@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 
-namespace Domain.Entities
+namespace DAL.Entities
 {
     /// <summary>
     /// Заявка группы на присоединение к группе

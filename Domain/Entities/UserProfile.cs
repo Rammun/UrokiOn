@@ -6,12 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Entities
+namespace DAL.Entities
 {
     public class UserProfile
     {
-        [Key]
-        [ForeignKey("User")]
         public string Id { get; set; }
 
         public virtual ApplicationUser User { get; set; }

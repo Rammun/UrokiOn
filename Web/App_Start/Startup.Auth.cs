@@ -6,8 +6,8 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using Web.Models;
-using Domain;
-using Domain.Entities;
+using DAL;
+using DAL.Entities;
 
 namespace Web
 {
