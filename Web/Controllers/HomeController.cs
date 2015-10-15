@@ -11,12 +11,19 @@ using System.Configuration;
 
 namespace Web.Controllers
 {
-    public class HomeController : BaseController
+    public class HomeController : Controller
     {
+        ApplicationDbContext db = new ApplicationDbContext();
+
         public ActionResult Index(int? page)
         {
+<<<<<<< HEAD
             var group = dbContext.Groups.FirstOrDefault(x => x.Name == ConfigurationManager.AppSettings["AdminGroupName"]);
             ViewBag.Article = group == null ? null : group.Articles.Where(x => x.Status).Select(x =>
+=======
+            var group = db.Groups.FirstOrDefault(x => x.Name == "Админы");
+            ViewBag.News = group == null ? null : group.GroupNewses.Where(x => x.Status).Select(x =>
+>>>>>>> parent of 543bc28... Подправил контроллы для BaseControll
                 {
                     return new Article()
                     {
@@ -46,19 +53,20 @@ namespace Web.Controllers
 
         public ActionResult ReadNews(int id)
         {
+<<<<<<< HEAD
             dbContext.Articles.Find(id).CountReader++;
             dbContext.SaveChanges();
             return View(dbContext.Articles.Find(id));
+=======
+            db.GroupNewses.Find(id).CountReader++;
+            db.SaveChanges();
+            return View(db.GroupNewses.Find(id));
+>>>>>>> parent of 543bc28... Подправил контроллы для BaseControll
         }
 
         public ActionResult GroupNewsAjax(List<Article> groupNews)
         {
             return PartialView("_GroupNewsPartial", groupNews);
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            base.Dispose(disposing);
         }
     }
 }
