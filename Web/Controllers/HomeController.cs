@@ -10,13 +10,11 @@ using System.Net;
 
 namespace Web.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
-        ApplicationDbContext db = new ApplicationDbContext();
-
         public ActionResult Index(int? page)
         {
-            var group = db.Groups.FirstOrDefault(x => x.Name == "Админы");
+            var group = dbContext.Groups.FirstOrDefault(x => x.Name == "Админы");
             ViewBag.News = group == null ? null : group.GroupNewses.Where(x => x.Status).Select(x =>
                 {
                     return new GroupNewse()
@@ -47,14 +45,19 @@ namespace Web.Controllers
 
         public ActionResult ReadNews(int id)
         {
-            db.GroupNewses.Find(id).CountReader++;
-            db.SaveChanges();
-            return View(db.GroupNewses.Find(id));
+            dbContext.GroupNewses.Find(id).CountReader++;
+            dbContext.SaveChanges();
+            return View(dbContext.GroupNewses.Find(id));
         }
 
         public ActionResult GroupNewsAjax(List<GroupNewse> groupNews)
         {
             return PartialView("_GroupNewsPartial", groupNews);
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            base.Dispose(disposing);
         }
     }
 }

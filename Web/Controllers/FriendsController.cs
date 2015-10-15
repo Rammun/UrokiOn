@@ -12,14 +12,13 @@ using PagedList.Mvc;
 
 namespace Web.Controllers
 {
-    public class FriendsController : Controller
+    public class FriendsController : BaseController
     {
-        ApplicationDbContext db = new ApplicationDbContext();
         UserManager<ApplicationUser> userManager;
 
         public FriendsController()
         {
-            userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+            userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(dbContext));
         }
 
         public ActionResult Index(int? page)
@@ -37,6 +36,17 @@ namespace Web.Controllers
             }
             ViewBag.Friends = flag ? null : friends.ToPagedList(page ?? 1, 3);
             return Request.IsAjaxRequest() ? (ActionResult)PartialView("_FriendsPartial") : View();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && userManager != null)
+            {
+                userManager.Dispose();
+                userManager = null;
+            }
+
+            base.Dispose(disposing);
         }
     }
 }
