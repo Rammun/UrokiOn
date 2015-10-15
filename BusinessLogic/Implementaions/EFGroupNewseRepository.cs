@@ -16,32 +16,32 @@ namespace BusinessLogic.Implementaions
             this.context = context;
         }
 
-        public IEnumerable<GroupNewse> GetGroupNewses()
+        public IEnumerable<Article> GetGroupNewses()
         {
-            return context.GroupNewses;
+            return context.Articles;
         }
 
-        public GroupNewse GetGroupNewsById(int id)
+        public Article GetGroupNewsById(int id)
         {
-            return context.GroupNewses.FirstOrDefault(x => x.Id == id);
+            return context.Articles.FirstOrDefault(x => x.Id == id);
         }
 
-        public IEnumerable<GroupNewse> GetGroupNewsByGroupId(int id)
+        public IEnumerable<Article> GetGroupNewsByGroupId(int id)
         {
-            return context.GroupNewses.Where(x => x.GroupId == id);
+            return context.Articles.Where(x => x.GroupId == id);
         }
 
-        public GroupNewse GetGroupNewsByDate(DateTime date)
+        public Article GetGroupNewsByDate(DateTime date)
         {
-            return context.GroupNewses.FirstOrDefault(x => x.CreateDate == date);
+            return context.Articles.FirstOrDefault(x => x.CreateDate == date);
         }
 
-        public void AddGroupNews(GroupNewse news)
+        public void AddGroupNews(Article news)
         {
             throw new NotImplementedException();
         }
 
-        public void DelGroupNews(GroupNewse news)
+        public void DelGroupNews(Article news)
         {
             throw new NotImplementedException();
         }

@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using PagedList;
 using Domain.Entities;
 using System.Net;
+using System.Configuration;
 
 namespace Web.Controllers
 {
@@ -14,10 +15,10 @@ namespace Web.Controllers
     {
         public ActionResult Index(int? page)
         {
-            var group = dbContext.Groups.FirstOrDefault(x => x.Name == "Админы");
-            ViewBag.News = group == null ? null : group.GroupNewses.Where(x => x.Status).Select(x =>
+            var group = dbContext.Groups.FirstOrDefault(x => x.Name == ConfigurationManager.AppSettings["AdminGroupName"]);
+            ViewBag.Article = group == null ? null : group.Articles.Where(x => x.Status).Select(x =>
                 {
-                    return new GroupNewse()
+                    return new Article()
                     {
                         Id = x.Id,
                         Title = x.Title,
@@ -45,12 +46,12 @@ namespace Web.Controllers
 
         public ActionResult ReadNews(int id)
         {
-            dbContext.GroupNewses.Find(id).CountReader++;
+            dbContext.Articles.Find(id).CountReader++;
             dbContext.SaveChanges();
-            return View(dbContext.GroupNewses.Find(id));
+            return View(dbContext.Articles.Find(id));
         }
 
-        public ActionResult GroupNewsAjax(List<GroupNewse> groupNews)
+        public ActionResult GroupNewsAjax(List<Article> groupNews)
         {
             return PartialView("_GroupNewsPartial", groupNews);
         }

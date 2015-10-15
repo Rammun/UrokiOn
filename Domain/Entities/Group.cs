@@ -46,9 +46,9 @@ namespace Domain.Entities
         public virtual ICollection<ApplicationUser> Users { get; set; }
 
         /// <summary>
-        /// Коллекция новостей группы
+        /// Коллекция статей группы
         /// </summary>
-        public virtual ICollection<GroupNewse> GroupNewses { get; set; }
+        public virtual ICollection<Article> Articles { get; set; }
 
         /// <summary>
         /// Коллекция дочерних групп
@@ -67,7 +67,7 @@ namespace Domain.Entities
         
         public Group()
         {
-            GroupNewses = new List<GroupNewse>();
+            Articles = new List<Article>();
             ChildGroups = new List<Group>();
             RequestGGs = new List<RequestGG>();
         }

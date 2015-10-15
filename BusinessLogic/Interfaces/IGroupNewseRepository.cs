@@ -8,11 +8,11 @@ namespace BusinessLogic.Interfaces
 {
     public interface IGroupNewseRepository
     {
-        IEnumerable<GroupNewse> GetGroupNewses();
-        GroupNewse GetGroupNewsById(int id);
-        IEnumerable<GroupNewse> GetGroupNewsByGroupId(int id);
-        GroupNewse GetGroupNewsByDate(DateTime date);
-        void AddGroupNews(GroupNewse news);
-        void DelGroupNews(GroupNewse news);
+        IEnumerable<Article> GetGroupNewses();
+        Article GetGroupNewsById(int id);
+        IEnumerable<Article> GetGroupNewsByGroupId(int id);
+        Article GetGroupNewsByDate(DateTime date);
+        void AddGroupNews(Article news);
+        void DelGroupNews(Article news);
     }
 }

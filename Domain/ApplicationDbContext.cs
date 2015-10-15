@@ -10,10 +10,11 @@ namespace Domain
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<Article> Articles { get; set; }
+        public DbSet<Chapter> Chapters { get; set; }
         public DbSet<City> Cities { get; set; }
         public DbSet<Country> Countries { get; set; }
         public DbSet<FriendRequest> FriendRequests { get; set; }
-        public DbSet<GroupNewse> GroupNewses { get; set; }
         public DbSet<GroupProfile> GroupProfiles { get; set; }
         public DbSet<RequestGG> RequestGGs { get; set; }
         public DbSet<RequestGU> RequestGUs { get; set; }

@@ -43,21 +43,34 @@ namespace Domain
             groupType.Description = "Тип группы для сотрудников - администраторов";
             context.GroupTypes.Add(groupType);
 
-            Group group = new Group("Админы", groupType, user);
+            Group group = new Group("Admins", groupType, user);
             context.Groups.Add(group);
 
             for (int i = 0; i < 10; i++)
             {
-                GroupNewse news = new GroupNewse
+                Article article = new Article
                 {
                     Title = "Новость" + i,
+                    Author = user,
                     CreateDate = DateTime.Now,
                     Status = true,
-                    Text = CreatText(),
                     CountReader = 0,
                     Group = group
                 };
-                context.GroupNewses.Add(news);
+
+                for (int j = 0; j < 3; j++)
+                {
+                    Chapter chapter = new Chapter
+                    {
+                        Title = "Глава" + j,
+                        Text = CreatText(),
+                        Article = article
+                    };
+
+                    article.Chapters.Add(chapter);
+                }
+
+                context.Articles.Add(article);
             }
 
             context.SaveChanges();
@@ -69,7 +82,7 @@ namespace Domain
             int length = rnd.Next(1, 4) * 15;
             for (int i = 0; i < length; i++)
             {
-                text.Append("текст").Append(i).Append(" ");
+                text.Append("слово").Append(i).Append(" ");
             }
             return text.ToString();
         }

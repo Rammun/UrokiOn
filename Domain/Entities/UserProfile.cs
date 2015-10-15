@@ -12,20 +12,36 @@ namespace Domain.Entities
     {
         public string Id { get; set; }
 
+        /// <summary>
+        /// Пользователь, которому принадлежит профайл
+        /// </summary>
         public virtual ApplicationUser User { get; set; }
+        public string UserId { get; set; }
 
+        /// <summary>
+        /// ФИО пользователя
+        /// </summary>
+        [Display(Name="Имя")]
         public string Name { get; set; }
+
+        [Display(Name="Фамилия")]
         public string Surname { get; set; }
+
+        [Display(Name="Отчество")]
         public string MiddleName { get; set; }
 
+        [Display(Name="День рождения")]
         public DateTime? Birthday { get; set; }
 
+        [Display(Name="Город")]
         public virtual City City { get; set; }
         public int? CityId { get; set; }
 
+        [Display(Name = "Область")]
         public virtual Region Region { get; set; }
         public int? RegionId { get; set; }
-        
+
+        [Display(Name = "Страна")]
         public virtual Country Country { get; set; }
         public int? CountryId { get; set; }
 

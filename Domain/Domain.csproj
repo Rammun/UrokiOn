@@ -107,11 +107,12 @@
     <Compile Include="ApplicationDbContext.cs" />
     <Compile Include="DBInitializer.cs" />
     <Compile Include="Entities\ApplicationUser.cs" />
+    <Compile Include="Entities\Chapter.cs" />
     <Compile Include="Entities\City.cs" />
     <Compile Include="Entities\Country.cs" />
     <Compile Include="Entities\FriendRequest.cs" />
     <Compile Include="Entities\Group.cs" />
-    <Compile Include="Entities\GroupNewse.cs" />
+    <Compile Include="Entities\Article.cs" />
     <Compile Include="Entities\GroupProfile.cs" />
     <Compile Include="Entities\GroupType.cs" />
     <Compile Include="Entities\MemberRole.cs" />

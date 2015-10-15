@@ -19,7 +19,7 @@ namespace Web.Areas.Admin.Controllers
         // GET: Admin/GroupNewses
         public async Task<ActionResult> Index()
         {
-            var groupNewses = db.GroupNewses.Include(g => g.Group);
+            var groupNewses = db.Articles.Include(g => g.Group);
             return View(await groupNewses.ToListAsync());
         }
 
@@ -30,7 +30,7 @@ namespace Web.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            GroupNewse groupNewse = await db.GroupNewses.FindAsync(id);
+            Article groupNewse = await db.Articles.FindAsync(id);
             if (groupNewse == null)
             {
                 return HttpNotFound();
@@ -50,11 +50,11 @@ namespace Web.Areas.Admin.Controllers
         // сведения см. в статье http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,GroupId,Title,Text,CreateDate,Status")] GroupNewse groupNewse)
+        public async Task<ActionResult> Create([Bind(Include = "Id,GroupId,Title,Text,CreateDate,Status")] Article groupNewse)
         {
             if (ModelState.IsValid)
             {
-                db.GroupNewses.Add(groupNewse);
+                db.Articles.Add(groupNewse);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
@@ -70,7 +70,7 @@ namespace Web.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            GroupNewse groupNewse = await db.GroupNewses.FindAsync(id);
+            Article groupNewse = await db.Articles.FindAsync(id);
             if (groupNewse == null)
             {
                 return HttpNotFound();
@@ -84,7 +84,7 @@ namespace Web.Areas.Admin.Controllers
         // сведения см. в статье http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,GroupId,Title,Text,CreateDate,Status")] GroupNewse groupNewse)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,GroupId,Title,Text,CreateDate,Status")] Article groupNewse)
         {
             if (ModelState.IsValid)
             {
@@ -103,7 +103,7 @@ namespace Web.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            GroupNewse groupNewse = await db.GroupNewses.FindAsync(id);
+            Article groupNewse = await db.Articles.FindAsync(id);
             if (groupNewse == null)
             {
                 return HttpNotFound();
@@ -116,8 +116,8 @@ namespace Web.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            GroupNewse groupNewse = await db.GroupNewses.FindAsync(id);
-            db.GroupNewses.Remove(groupNewse);
+            Article groupNewse = await db.Articles.FindAsync(id);
+            db.Articles.Remove(groupNewse);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }

@@ -44,6 +44,8 @@ namespace Web
         //Определяем все привязки
         private void AddBindings()
         {
+            //kernel.Bind<IArticleRepository>().To<EFArticleRepository>();
+            //kernel.Bind<IChapterRepository>().To<EFChapterRepository>();
             kernel.Bind<ICityRepository>().To<EFCityRepository>();
             kernel.Bind<ICountryRepository>().To<EFCountryRepository>();
             kernel.Bind<IFriendRequestRepository>().To<EFFriendRequestRepository>();
