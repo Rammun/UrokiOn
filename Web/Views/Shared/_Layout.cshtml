@@ -41,16 +41,7 @@
             <p><a href="http://asp.net" class="btn btn-primary btn-lg">Ссылочка на что-нибудь &raquo;</a></p>
         </div>
 
-        <div class="col-md-3">
-            <div>
-                <ul class="nav nav-pills nav-stacked">
-                    <li>@Html.ActionLink("Друзья", "Index", "Friends", new { area = "" }, null)</li>
-                    <li>@Html.ActionLink("Группы", "Index", "Home", new { area = "" }, null)</li>
-                    <li>@Html.ActionLink("Сообщения", "Index", "Home", new { area = "" }, null)</li>
-                    <li>@Html.ActionLink("Настройки", "Index", "Home", new { area = "" }, null)</li>
-                </ul>
-            </div>
-        </div>
+        @Html.Partial("_LeftMenuPartial")
 
         <div class="col-md-9">
             @RenderBody()
